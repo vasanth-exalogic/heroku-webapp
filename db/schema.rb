@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_26_093750) do
+ActiveRecord::Schema.define(version: 2019_11_26_101647) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_093750) do
     t.integer "age"
     t.decimal "sal"
     t.decimal "salpm"
-    t.integer "contact"
+    t.integer "contact", limit: 36
     t.string "bloodtype"
     t.string "address"
     t.string "city"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_093750) do
     t.integer "pincode"
     t.string "gender"
     t.string "ename"
-    t.integer "econtact"
+    t.integer "econtact", limit: 36
     t.string "pskill"
     t.string "sskill"
     t.string "sskill2"

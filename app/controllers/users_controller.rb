@@ -91,7 +91,7 @@ class UsersController < ApplicationController
   end
 
   def find_age(datebirth)
-    (Date.today-(datebirth.to_date))/365.to_i
+    ((Date.today-datebirth)/365).to_i
   end
 
   def find_sal(sal)
