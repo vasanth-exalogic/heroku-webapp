@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_26_101647) do
+ActiveRecord::Schema.define(version: 2019_11_26_102504) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email"
@@ -20,34 +20,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_101647) do
     t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "fname"
-    t.string "lname"
-    t.date "datebirth"
-    t.date "datejoining"
-    t.integer "age"
-    t.decimal "sal"
-    t.decimal "salpm"
-    t.integer "contact", limit: 36
-    t.string "bloodtype"
-    t.string "address"
-    t.string "city"
-    t.string "state"
-    t.string "country"
-    t.integer "pincode"
-    t.string "gender"
-    t.string "ename"
-    t.integer "econtact", limit: 36
-    t.string "pskill"
-    t.string "sskill"
-    t.string "sskill2"
-    t.decimal "notice"
-    t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "relation"
-    t.index ["email"], name: "index_users_on_email", unique: true
-  end
+# Could not dump table "users" because of following StandardError
+#   Unknown type '' for column 'contact'
 
 end
