@@ -10,27 +10,20 @@
   <tr>
     <td><%= f.label "Date of Birth"%></td>
     <td><%= f.date_field :datebirth%></td>
-    <td><%= f.label :age%></td>
-    <td><%= f.number_field :age%></td>
-
-  </tr>
-  <tr>
     <td><%= f.label "Date of Joining"%></td>
     <td><%= f.date_field :datejoining%></td>
-    <td><%= f.label "Blood Type"%></td>
-    <td><%= f.select :bloodtype, ['AB+','AB-','A+','A-','B+','B-','O+','O-']%></td>
   </tr>
   <tr>
+      <td><%= f.label "Blood Type"%></td>
+    <td><%= f.select :bloodtype, ['Blood Type','AB+','AB-','A+','A-','B+','B-','O+','O-']%></td>
     <td><%= f.label "Salary per annum"%></td>
     <td><%= f.number_field :sal%></td>
-    <td><%= f.label "Salary per month"%></td>
-    <td><%= f.number_field :salpm%></td>
   </tr>
   <tr>
     <td><%= f.label :contact%></td>
-    <td><%= f.number_field :contact%></td>
+    <td><%= f.text_field :contact, :pattern=>'\d*', :maxlength=>10, :minlength=>10%></td>
     <td><%= f.label "Gender"%></td>
-    <td><%= f.select :gender, ['Male','Female']%></td>
+    <td><%= f.select :gender, ['Gender','Male','Female']%></td>
   </tr>
   <tr>
     <td><%= f.label :address%></td>
@@ -40,13 +33,17 @@
   </tr>
   <tr>
     <td><%= f.label :state%></td>
-    <td><%= f.text_field :state%></td>
+    <td><%= f.select :state, ['State','Andaman and Nicobar Islands','Andhra Pradesh','Arunachal Pradesh','Assam',
+      'Bihar','Chandigarh','Chhattisgarh','Dadra and Nagar Haveli','Daman and Diu','Delhi','Goa','Gujarat','Haryana',
+      'Himachal Pradesh','Jammu and Kashmir','Jharkhand','Karnataka','Kerala','Ladakh','Lakshadweep','Madhya Pradesh',
+      'Maharashtra','Manipur','Meghalaya','Mizoram','Nagaland','Odisha','Puducherry','Punjab','Rajasthan','Sikkim','Tamil Nadu',
+      'Telangana','Tripura','Uttar Pradesh','Uttarakhand','West Bengal']%></td>
     <td><%= f.label :country%></td>
-    <td><%= f.select :country, ['India']%></td>
+    <td><%= f.select :country, ['Country','India']%></td>
   </tr>
   <tr>
     <td><%= f.label "Pincode"%></td>
-    <td><%= f.number_field :pincode%></td>
+    <td><%= f.text_field :pincode, :pattern=>'\d*', :maxlength=>6, :minlength=>6%></td>
     <td><%= f.label "Notice period in days"%></td>
     <td><%= f.number_field :notice%></td>
   </tr>
@@ -54,11 +51,11 @@
     <td><%= f.label "Emergency Contact Name"%></td>
     <td><%= f.text_field :ename%></td>
     <td><%= f.label "Relation"%></td>
-    <td><%= f.select :relation, ['Parent','Spouse','Friend','Others']%></td>
+    <td><%= f.select :relation, ['Relation','Parent','Spouse','Friend','Others']%></td>
   </tr>
   <tr>
     <td><%= f.label "Emergency Contact Number"%></td>
-    <td><%= f.number_field :econtact%></td>
+    <td><%= f.text_field :econtact, :pattern=>'\d*', :maxlength=>10, :minlength=>10%></td>
     <td><%= f.label "Primary Skill"%></td>
     <td><%= f.text_field :pskill%></td>
   </tr>
