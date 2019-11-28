@@ -47,13 +47,13 @@
     <td><%= f.number_field :notice, :min => 0%></td>
   </tr>
   <tr>
-    <td><%= f.label "Emergency Contact Name*"%></td>
+    <td><%= f.label "Emergency Contact Name "%><font color="red">*</font></td>
     <td><%= f.text_field :ename%><span style="color:darkgrey;"><%= @user.errors[:ename][0] rescue nil%></span></td>
     <td><%= f.label "Relation"%></td>
     <td><%= f.select :relation, [['Relation',nil],'Parent','Spouse','Friend','Others']%></td>
   </tr>
   <tr>
-    <td><%= f.label "Emergency Contact Number"%></td>
+    <td><%= f.label "Emergency Contact Number "%><font color="red">*</font></td>
     <td><%= f.text_field :econtact, :pattern=>'\d*', :maxlength=>10, :minlength=>10%></td>
     <td><%= f.label "Primary Skill"%></td>
     <td><%= f.text_field :pskill%></td>

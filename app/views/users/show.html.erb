@@ -34,8 +34,8 @@
             <td><b>Date of Birth</b></td>
             <td><%= @user.datebirth%></td>
             <td><b>Age</b></td>
-            <% unless @user.age==nil%>
-              <td><%= @user.age.to_i%></td>
+            <% unless @user.datebirth==nil%>
+              <td><%= ((Date.today-@user.datebirth)/365).to_i%></td>
             <% else%>
               <td></td>
             <% end%>
@@ -54,8 +54,8 @@
               <td></td>
             <% end%>
             <td><b>Salary per month</b></td>
-            <% unless @user.salpm==nil%>
-              <td><%= @user.salpm.to_i%></td>
+            <% unless @user.sal==nil%>
+              <td><%= (@user.sal/12).to_i%></td>
             <% else%>
               <td></td>
             <% end%>
