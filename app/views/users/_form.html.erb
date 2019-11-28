@@ -3,7 +3,7 @@
   <tr>
     <td><%= f.label "First Name "%><font color="red">*</font></td>
     <td><%= f.text_field :fname%><span style="color:darkgrey;"><%= @user.errors[:fname][0] rescue nil%></span></td>
-    <td><%= f.label "Last Name "%></td>
+    <td><%= f.label "Last Name "%><font color="red">*</font></td>
     <td><%= f.text_field :lname%><span style="color:darkgrey;"><%= @user.errors[:lname][0] rescue nil%></span></td>
   </tr>
   <tr>
