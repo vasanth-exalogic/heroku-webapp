@@ -1,29 +1,28 @@
 <%= form_for @user do |f|%>
-<span><%= @create_error%></span>
 <table class="w3-table w3-striped w3-border">
   <tr>
-    <td><%= f.label "First Name"%></td>
-    <td><%= f.text_field :fname%></td>
-    <td><%= f.label "Last Name"%></td>
-    <td><%= f.text_field :lname%></td>
+    <td><%= f.label "First Name "%><font color="red">*</font></td>
+    <td><%= f.text_field :fname%><span style="color:darkgrey;"><%= @user.errors[:fname][0] rescue nil%></span></td>
+    <td><%= f.label "Last Name "%></td>
+    <td><%= f.text_field :lname%><span style="color:darkgrey;"><%= @user.errors[:lname][0] rescue nil%></span></td>
   </tr>
   <tr>
-    <td><%= f.label "Date of Birth"%></td>
-    <td><%= f.date_field :datebirth%></td>
+    <td><%= f.label "Date of Birth "%><font color="red">*</font></td>
+    <td><%= f.date_field :datebirth, :max => Date.new(Date.today.year-18,Date.today.mon,Date.today.day)%></td>
     <td><%= f.label "Date of Joining"%></td>
-    <td><%= f.date_field :datejoining%></td>
+    <td><%= f.date_field :datejoining, :max => Date.today%></td>
   </tr>
   <tr>
       <td><%= f.label "Blood Type"%></td>
-    <td><%= f.select :bloodtype, ['Blood Type','AB+','AB-','A+','A-','B+','B-','O+','O-']%></td>
+    <td><%= f.select :bloodtype, [['Blood Type',nil],'AB+','AB-','A+','A-','B+','B-','O+','O-']%></td>
     <td><%= f.label "Salary per annum"%></td>
-    <td><%= f.number_field :sal%></td>
+    <td><%= f.number_field :sal, :min => 0%></td>
   </tr>
   <tr>
-    <td><%= f.label :contact%></td>
+    <td><%= f.label "Contact "%><font color="red">*</font></td>
     <td><%= f.text_field :contact, :pattern=>'\d*', :maxlength=>10, :minlength=>10%></td>
     <td><%= f.label "Gender"%></td>
-    <td><%= f.select :gender, ['Gender','Male','Female']%></td>
+    <td><%= f.select :gender, [['Gender',nil],'Male','Female']%></td>
   </tr>
   <tr>
     <td><%= f.label :address%></td>
@@ -33,7 +32,7 @@
   </tr>
   <tr>
     <td><%= f.label :state%></td>
-    <td><%= f.select :state, ['State','Andaman and Nicobar Islands','Andhra Pradesh','Arunachal Pradesh','Assam',
+    <td><%= f.select :state, [['State',nil],'Andaman and Nicobar Islands','Andhra Pradesh','Arunachal Pradesh','Assam',
       'Bihar','Chandigarh','Chhattisgarh','Dadra and Nagar Haveli','Daman and Diu','Delhi','Goa','Gujarat','Haryana',
       'Himachal Pradesh','Jammu and Kashmir','Jharkhand','Karnataka','Kerala','Ladakh','Lakshadweep','Madhya Pradesh',
       'Maharashtra','Manipur','Meghalaya','Mizoram','Nagaland','Odisha','Puducherry','Punjab','Rajasthan','Sikkim','Tamil Nadu',
@@ -45,13 +44,13 @@
     <td><%= f.label "Pincode"%></td>
     <td><%= f.text_field :pincode, :pattern=>'\d*', :maxlength=>6, :minlength=>6%></td>
     <td><%= f.label "Notice period in days"%></td>
-    <td><%= f.number_field :notice%></td>
+    <td><%= f.number_field :notice, :min => 0%></td>
   </tr>
   <tr>
-    <td><%= f.label "Emergency Contact Name"%></td>
-    <td><%= f.text_field :ename%></td>
+    <td><%= f.label "Emergency Contact Name*"%></td>
+    <td><%= f.text_field :ename%><span style="color:darkgrey;"><%= @user.errors[:ename][0] rescue nil%></span></td>
     <td><%= f.label "Relation"%></td>
-    <td><%= f.select :relation, ['Relation','Parent','Spouse','Friend','Others']%></td>
+    <td><%= f.select :relation, [['Relation',nil],'Parent','Spouse','Friend','Others']%></td>
   </tr>
   <tr>
     <td><%= f.label "Emergency Contact Number"%></td>
@@ -69,8 +68,8 @@
     <td colspan="4"><label><h3><b>LOGIN DETAILS</b></h3></label></td>
   </tr>
   <tr>
-    <td><%= f.label :email%></td>
-    <td><%= f.email_field :email%></td>
+    <td><%= f.label "Email "%><font color="red">*</font></td>
+    <td><%= f.email_field :email%><span style="color:darkgrey;"><%= @user.errors[:email][0] rescue nil%></span></td>
     <td></td>
     <td></td>
   </tr>

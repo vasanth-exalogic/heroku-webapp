@@ -14,10 +14,10 @@ class UsersController < ApplicationController
   def create
     @error3
     @user = User.new(user_params)
-    if @user.save && is_elder?(@user.datebirth)
+    if @user.save
       redirect_to @user
     else
-      @error3="Please enter proper Email-id and Password or Check if User is above 18 years old"
+      @error3 = "Check email address and password, Fill the compulsory fields"
       render 'new'
     end
   end
@@ -37,12 +37,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    if @user.datebirth!=nil
-      @user.age=find_age(@user.datebirth)
-    end
-    if @user.sal!=nil
-      @user.salpm=find_sal(@user.sal)
-    end
     if @user.bloodtype == 'Blood Type'
       @user.bloodtype=nil
     end
@@ -88,17 +82,5 @@ class UsersController < ApplicationController
     unless session[:user_id]==@user.id || session[:user_type]=='admin'
       redirect_to root_path
     end
-  end
-
-  def find_age(datebirth)
-    ((Date.today-datebirth)/365).to_i
-  end
-
-  def find_sal(sal)
-    sal/12
-  end
-
-  def is_elder?(date)
-    find_age(date)>=18
   end
 end
